@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dra. Maira Cisneros · Médica de familia</title>
 <meta name="description" content="Maira Cisneros, médica especialista en Medicina Familiar y General. Agendá tu consulta.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🩺%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Dra. Maira Cisneros · Médica de familia">
+<meta property="og:description" content="Medicina Familiar y General. Consultorio particular con turnos online.">
+<meta property="og:image" content="hero.jpg"><!-- al tener dominio: https://TUDOMINIO/hero.jpg -->
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Maira Cisneros","description":"Médica especialista en Medicina Familiar y General. Atención particular.","telephone":"+5491130419545","image":"hero.jpg","areaServed":"Buenos Aires, Argentina","identifier":[{"@type":"PropertyValue","name":"Matrícula Nacional (MN)","value":"186179"},{"@type":"PropertyValue","name":"Matrícula Provincial (MP)","value":"461153"}],"knowsAbout":["Medicina familiar","Cuidados paliativos","Salud del adulto mayor","Control de la mujer"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -103,7 +110,7 @@ footer b{color:var(--navy)}
  section{padding:52px 0}
  .burger{display:block}
  .links{position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s}
- .links.open{max-height:260px}.links a{padding:15px 20px}
+ .links.open{max-height:340px}.links a{padding:15px 20px}
  .grid,.cols{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
@@ -159,6 +166,17 @@ footer b{color:var(--navy)}
  .dv-sp::before{left:-22px;width:14px}.dv-sp::after{left:-9px}
  .dv-sp li{flex-direction:column;gap:4px}
 }
+
+.card.ico-l .ico{font-size:22px}
+.tg{display:inline-block;background:var(--bg);color:var(--blue-d);font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px;margin:0 6px 6px 0}
+.stack{display:grid;gap:20px;align-content:start}
+.calbox{background:#fff;border-radius:22px;box-shadow:0 10px 40px -14px rgba(60,90,180,.25);padding:18px;text-align:center;min-height:300px;display:grid;align-content:center;gap:12px}
+.calbox iframe{width:100%;height:620px;border:0;border-radius:14px}
+.faq{max-width:720px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.faq summary{font-weight:700;color:var(--navy);cursor:pointer}
+.faq p{color:var(--mute);margin-top:10px;font-size:15px}
+footer a{color:var(--blue);font-weight:600}
 </style>
 </head>
 <body>
@@ -166,7 +184,7 @@ footer b{color:var(--navy)}
  <a href="#top" class="logo">Dra. Maira <b>Cisneros</b></a>
  <button class="burger" id="bg" aria-label="Menú"><i></i><i></i><i></i></button>
  <div class="links" id="lk">
-  <a href="#especialidad">Especialidad</a><a href="#derivaciones">Derivaciones</a><a href="#carrera">Carrera</a><a href="#resenas">Reseñas</a>
+  <a href="#especialidad">Especialidad</a><a href="#servicios">Servicios</a><a href="#derivaciones">Derivaciones</a><a href="#carrera">Carrera</a><a href="#turnos">Turnos</a><a href="#faq">Preguntas</a>
  </div>
 </div></nav>
 
@@ -175,7 +193,7 @@ footer b{color:var(--navy)}
  <div class="intro">
   <h1>Maira Cisneros,<br><span>médica de familia</span></h1>
   <p>Médica egresada de la UBA y especialista en Medicina Familiar y General (CEMIC). Te acompaño en tu salud y la de tu familia.</p>
-  <a class="btn" href="#especialidad">Conocer más</a>
+  <a class="btn" href="#turnos">Sacar turno</a>
  </div>
 </header>
 
@@ -188,6 +206,12 @@ footer b{color:var(--navy)}
   <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.5 6 5"/></svg></div><h3>Enfoque global</h3><p>Considera a la persona dentro de su entorno familiar y comunitario, prestando atención a los factores físicos, mentales y sociales que influyen en su bienestar.</p></div>
   <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><h3>Coordinación y derivación</h3><p>Guía al paciente por el sistema de salud y lo deriva con médicos especialistas cuando el cuadro lo requiere.</p></div>
  </div>
+</div></section>
+
+<section id="servicios" class="tint"><div class="wrap">
+ <h2>Qué <b>ofrezco</b> en el consultorio</h2>
+ <p class="sub">Atención para adultos y adultos mayores.</p>
+ <div class="grid"><div class="card ico-l rv"><div class="ico">🩺</div><h3>Controles de salud y preocupacional</h3><p>Control periódico, laboratorios y estudios de rutina según tu edad y antecedentes.</p></div><div class="card ico-l rv"><div class="ico">📄</div><h3>Certificados médicos</h3><p>Aptos físicos, certificados laborales y escolares, luego de la evaluación clínica.</p></div><div class="card ico-l rv"><div class="ico">🌸</div><h3>Control de la mujer</h3><p>Papanicolaou, anticoncepción y controles ginecológicos de rutina.</p></div><div class="card ico-l rv"><div class="ico">🧓</div><h3>Adultos mayores</h3><p>Seguimiento integral: medicación, caídas, memoria y acompañamiento de la familia.</p></div><div class="card ico-l rv"><div class="ico">🕊️</div><h3>Cuidados paliativos</h3><p>Integro el equipo interdisciplinario de Cuidados Paliativos de San Fernando y me formo en el posgrado de FLACSO. Acompaño al paciente y a su familia.</p></div><div class="card ico-l rv"><div class="ico">💉</div><h3>Vacunación y prevención</h3><p>Calendario de vacunas y controles preventivos para toda la familia.</p></div></div>
 </div></section>
 
 <section id="derivaciones"><div class="wrap">
@@ -233,6 +257,19 @@ footer b{color:var(--navy)}
  </div>
 </div></section>
 
+<section id="turnos"><div class="wrap">
+ <h2>Sacá tu <b>turno</b></h2>
+ <p class="sub">Atención particular, presencial y con turno previo.</p>
+ <div class="cols">
+  <div class="stack rv">
+   <div class="card"><h3>Atención particular</h3><p>Sin obras sociales ni prepagas. El valor de la consulta lo consultás por WhatsApp.</p></div>
+   <div class="card"><h3>Modalidad</h3><span class="tg">Presencial</span></div>
+   <div class="card" id="lugar" hidden><h3>Dónde atiendo</h3><p id="dir"></p><iframe id="map" title="Mapa" loading="lazy" style="width:100%;height:220px;border:0;border-radius:14px;margin-top:12px" hidden></iframe></div>
+  </div>
+  <div class="calbox rv" id="cal"></div>
+ </div>
+</div></section>
+
 <section id="resenas" class="tint"><div class="wrap">
  <h2>Lo que dicen <b>mis pacientes</b></h2>
  <p class="sub">Opiniones de quienes ya se atendieron.</p>
@@ -242,7 +279,15 @@ footer b{color:var(--navy)}
  </div>
 </div></section>
 
-<footer><b>Dra. Maira Cisneros</b><br>Medicina Familiar y General · Buenos Aires, Argentina</footer>
+<section id="faq"><div class="wrap">
+ <h2>Preguntas <b>frecuentes</b></h2>
+ <p class="sub">Lo que más me consultan antes de la primera visita.</p>
+ <div class="faq"><details><summary>¿Cuándo consultar al médico de cabecera y cuándo ir a la guardia?</summary><p>Para controles, síntomas leves o crónicos y dudas, el consultorio. Dolor de pecho, falta de aire intensa, pérdida de fuerza o del habla, sangrado importante o fiebre alta persistente son motivos de guardia.</p></details><details><summary>¿Qué llevo a la primera consulta?</summary><p>DNI, estudios y análisis anteriores, listado de los medicamentos que tomás y tus antecedentes familiares si los conocés.</p></details><details><summary>¿Atiende a toda la familia?</summary><p>Atiendo adultos y adultos mayores. Si hace falta otra especialidad, te oriento y te derivo.</p></details><details><summary>¿Cómo cancelo o reprogramo un turno?</summary><p>Desde el mismo link del turno o escribiendo por WhatsApp, con al menos 24 horas de anticipación si es posible.</p></details><details><summary>¿Trabaja con obras sociales o prepagas?</summary><p>No, la atención es particular. Podés consultar el valor por WhatsApp.</p></details></div>
+</div></section>
+
+<footer><b>Dra. Maira Cisneros</b><br>Medicina Familiar y General · Buenos Aires, Argentina<br>
+MN 186179 · MP 461153<br>
+<a href="tel:+5491130419545">Llamar</a><span id="ct"></span></footer>
 
 <a class="wa" href="https://wa.me/5491130419545?text=Hola%20Dra.%20Maira%2C%20quiero%20agendar%20una%20consulta" target="_blank" rel="noopener">
  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 .9-2.200c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>
@@ -274,19 +319,23 @@ $('#pv').onclick=()=>go(cur-1,1);$('#nt').onclick=()=>go(cur+1,1);
 let x0=null;tr.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
 tr.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(cur+(d<0?1:-1),1);x0=null});
 go(0);auto();
-// encuesta
-const SCRIPT_URL='PEGAR_AQUI_LA_URL_DEL_APPS_SCRIPT';
-const A={};
-$$('.sc').forEach(g=>{for(let n=1;n<=5;n++){const b=document.createElement('button');b.textContent=n;b.onclick=()=>{[...g.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');A[g.dataset.k]=n;$('#nx').disabled=!(A.precio&&A.entiende);$('#sd').disabled=!A.miedo};g.appendChild(b)}});
-const show=id=>{$$('.step').forEach(s=>s.classList.toggle('show',s.id==id))};
-$('#nx').onclick=()=>{show('s2');$('#p2').classList.add('on');$('#sv').scrollIntoView({behavior:'smooth',block:'start'})};
-$('#bk').onclick=()=>{show('s1');$('#p2').classList.remove('on')};
-$('#sd').onclick=async()=>{
- const b=$('#sd');b.disabled=true;b.textContent='Enviando…';
- const body=new URLSearchParams({precio:A.precio,entiende:A.entiende,miedo:A.miedo,comentario:$('#cm').value.trim()});
- try{await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body})}catch(e){}
- show('s3');$$('.pb i').forEach(i=>i.classList.add('on'));
+// configuración: completá lo que tengas (si queda vacío, no se muestra)
+const CFG={
+ calendario:'',   // pegá acá el link de Google Calendar (Agenda de citas): el de 'Insertar' o el de compartir
+ direccion:'',    // ej: "Av. Santa Fe 1234, CABA"
+ mapa:'',         // URL "Insertar mapa" de Google Maps (src del iframe)
+ email:'',
+ instagram:''
 };
+const WA='https://wa.me/5491130419545?text=Hola%20Dra.%20Maira%2C%20quiero%20agendar%20una%20consulta';
+const cu=CFG.calendario;
+$('#cal').innerHTML=!cu?
+ `<h3 style="color:var(--navy)">Turnos online</h3><p style="color:var(--mute)">Escribime por WhatsApp y coordinamos el día y horario.</p><div><a class="btn" style="animation:none" href="${WA}" target="_blank" rel="noopener">Pedir turno por WhatsApp</a></div>`:
+ cu.includes('calendar.google.com/calendar/appointments')?
+ `<iframe src="${cu}" title="Agenda de turnos" loading="lazy"></iframe><a href="${cu}" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;font-size:14px">Abrir agenda en una pestaña nueva</a>`:
+ `<h3 style="color:var(--navy)">Turnos online</h3><p style="color:var(--mute)">Elegí el día y horario que te quede cómodo desde su agenda.</p><div><a class="btn" style="animation:none" href="${cu}" target="_blank" rel="noopener">Reservar turno</a></div><a href="${WA}" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;font-size:14px">¿Preferís WhatsApp?</a>`;
+if(CFG.direccion){$('#lugar').hidden=false;$('#dir').textContent=CFG.direccion;if(CFG.mapa){$('#map').src=CFG.mapa;$('#map').hidden=false}}
+$('#ct').innerHTML=(CFG.email?` · <a href="mailto:${CFG.email}">${CFG.email}</a>`:'')+(CFG.instagram?` · <a href="${CFG.instagram}" target="_blank" rel="noopener">Instagram</a>`:'');
 </script>
 <script>
 (function(){
@@ -308,5 +357,3 @@ document.getElementById('dvl').innerHTML=D.map(function(s){return '<article clas
 </script>
 </body>
 </html>
-
-
