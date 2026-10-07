@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Maira Cisneros · Médica de familia</title>
+<meta name="description" content="Maira Cisneros, médica especialista en Medicina Familiar y General. Agendá tu consulta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#4f80ff;--blue-d:#2f5fe0;--navy:#1d3a73;--ink:#2b3558;--mute:#6b7596;--bg:#f4f7ff;--card:#fff;--line:#e3e9fb;--wa:#25d366}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(26px,5vw,36px);line-height:1.2;color:var(--navy);text-align:center;margin-bottom:10px;font-weight:700}
+h2 b{color:var(--blue);font-weight:700}
+.sub{text-align:center;color:var(--mute);max-width:520px;margin:0 auto 40px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:19px;color:var(--navy)}.logo b{color:var(--blue)}
+.links{display:flex;gap:28px;font-size:15px;font-weight:500;color:var(--mute)}
+.links a{transition:color .2s}.links a:hover,.links a.on{color:var(--blue)}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger i{display:block;width:22px;height:2px;background:var(--navy);margin:5px auto;transition:.3s}
+.burger.x i:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.x i:nth-child(2){opacity:0}.burger.x i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* hero */
+.hero{overflow:hidden;background:var(--bg)}
+.hero img{display:block;width:100%;height:clamp(220px,38vw,440px);object-fit:cover;object-position:60% 30%;animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes zoom{from{transform:scale(1.12);opacity:0}to{transform:scale(1);opacity:1}}
+.intro{text-align:center;padding:44px 20px 56px}
+.intro>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.intro h1{font-size:clamp(30px,6vw,46px);line-height:1.15;color:var(--navy);font-weight:800;animation-delay:.5s}
+.intro h1 span{color:var(--blue)}
+.intro p{color:var(--mute);max-width:520px;margin:14px auto 26px;animation-delay:.7s}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-weight:600;padding:14px 30px;border-radius:999px;border:0;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 10px 24px -8px rgba(79,128,255,.7);transition:transform .2s,background .2s;animation-delay:.9s}
+.btn:hover{background:var(--blue-d);transform:translateY(-2px)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+/* especialidad */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--card);border-radius:22px;padding:28px;box-shadow:0 10px 40px -14px rgba(60,90,180,.25);transition:transform .3s}
+.card:hover{transform:translateY(-4px)}
+.ico{width:48px;height:48px;border-radius:50%;background:var(--bg);color:var(--blue);display:grid;place-items:center;margin-bottom:14px}
+.ico svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{color:var(--navy);font-size:18px;margin-bottom:6px}
+.card p{color:var(--mute);font-size:15px}
+/* carrera */
+.tint{background:var(--bg)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cols h3{color:var(--navy);margin-bottom:18px;font-size:20px}
+.tl{border-left:2px solid var(--line);padding-left:22px}
+.it{position:relative;margin-bottom:26px;color:var(--navy);font-weight:600}
+.it:before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px #dbe5ff}
+.it u{text-decoration-thickness:1px}
+.it ul{margin:6px 0 0 18px;font-weight:400;color:var(--ink)}
+.it.edu{font-weight:500}
+/* reseñas */
+.car{max-width:640px;margin:0 auto;position:relative}
+.vp{overflow:hidden;border-radius:22px}
+.tr{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.sl{min-width:100%;padding:6px}
+.rc{background:#fff;border-radius:22px;padding:34px 28px;box-shadow:0 10px 40px -14px rgba(60,90,180,.3);text-align:center}
+.av{width:60px;height:60px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;background:var(--blue)}
+.st{color:#ffb400;font-size:20px;letter-spacing:3px;margin-bottom:12px}
+.rc p{font-size:16px;margin-bottom:16px}
+.rc strong{color:var(--blue)}.rc small{display:block;color:var(--mute)}
+.ctl{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:22px}
+.ar{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--blue);font-size:18px;cursor:pointer;transition:.2s}
+.ar:hover{background:var(--blue);color:#fff}
+.dots{display:flex;gap:8px}.dots button{width:9px;height:9px;border-radius:99px;border:0;background:#c9d5f7;cursor:pointer;transition:.3s;padding:0}
+.dots button.on{width:26px;background:var(--blue)}
+/* encuesta */
+.sv{max-width:460px;margin:0 auto;background:#fff;border-radius:26px;padding:30px 24px;box-shadow:0 14px 50px -16px rgba(60,90,180,.35)}
+.sv h3{font-size:24px;color:#111a33;line-height:1.2;margin-bottom:6px}
+.sv .d{color:var(--mute);font-size:15px;margin-bottom:18px}
+.pb{display:flex;gap:10px;margin-bottom:18px}.pb i{flex:1;height:5px;border-radius:9px;background:#e6e9f2;transition:background .4s}.pb i.on{background:#2b6be6}
+.step{display:none;animation:rise .45s both}.step.show{display:block}
+.q{font-weight:700;color:#111a33;font-size:18px;margin:18px 0 10px}
+.sc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.sc button{height:48px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:inherit;font-size:18px;font-weight:600;color:var(--ink);cursor:pointer;transition:.2s}
+.sc button.on{background:#2b6be6;border-color:#2b6be6;color:#fff;transform:scale(1.06)}
+.lb{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-top:4px}
+textarea{width:100%;height:96px;border:1.5px solid var(--line);border-radius:14px;padding:12px;font:inherit;resize:none}
+textarea:focus{outline:2px solid #bcd0ff}
+.row{display:flex;gap:10px;margin-top:22px}
+.row button{flex:1;padding:14px;border-radius:14px;font:inherit;font-weight:600;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.row .go{background:#2b6be6;border-color:#2b6be6;color:#fff;transition:.2s}
+.row .go:disabled{background:#a9c0f7;border-color:#a9c0f7;cursor:not-allowed}
+.ok{text-align:center;padding:20px 0}.ok .ico{margin:0 auto 14px;background:#e3f8ec;color:#1aa35a;width:64px;height:64px}
+.ok .ico svg{width:32px;height:32px;stroke-dasharray:30;animation:dr .6s .2s both}
+@keyframes dr{from{stroke-dashoffset:30}to{stroke-dashoffset:0}}
+/* footer + wa */
+footer{background:var(--bg);text-align:center;padding:36px 20px 110px;color:var(--mute);font-size:14px}
+footer b{color:var(--navy)}
+.wa{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;padding:14px 20px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(37,211,102,.8);animation:pulse 2.4s infinite,rise .8s 1.4s both;transition:transform .2s}
+.wa:hover{transform:scale(1.05)}.wa svg{width:24px;height:24px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:760px){
+ section{padding:52px 0}
+ .burger{display:block}
+ .links{position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s}
+ .links.open{max-height:260px}.links a{padding:15px 20px}
+ .grid,.cols{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* derivaciones */
+#derivaciones{border-top:1px solid var(--line)}
+:root{--dv-r:#e5484d;--dv-a:#f0a020;--dv-g:#1aa35a}
+.dv-flow{display:flex;flex-direction:column;align-items:center;max-width:900px;margin:0 auto 64px}
+.dv-node{background:#fff;border:2px solid var(--line);border-radius:18px;padding:16px 22px;text-align:center;width:100%;max-width:400px;box-shadow:0 10px 40px -16px rgba(60,90,180,.3)}
+.dv-node b{display:block;color:var(--navy);font-size:17px}.dv-node span{font-size:14px;color:var(--mute)}
+.dv-node.main{background:var(--blue);border-color:var(--blue)}.dv-node.main b,.dv-node.main span{color:#fff}
+.dv-line{width:2px;height:30px;background:var(--blue);position:relative}
+.dv-line.head{margin-bottom:12px}
+.dv-line.head::after,.dv-branch::after,.dv-link::after{content:"";position:absolute;border:7px solid transparent}
+.dv-line.head::after{border-top-color:var(--blue);bottom:-13px;left:-6px}
+.dv-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;position:relative}
+.dv-branches::before{content:"";position:absolute;top:0;left:16.66%;right:16.66%;height:2px;background:var(--blue)}
+.dv-branch{position:relative;padding-top:34px}
+.dv-branch::before{content:"";position:absolute;top:0;left:50%;width:2px;height:22px;background:var(--blue);margin-left:-1px}
+.dv-branch::after{border-top-color:var(--blue);top:21px;left:50%;margin-left:-7px}
+.dv-b{height:100%;border-radius:18px;padding:18px;text-align:center;border:2px solid}
+.dv-b b{display:block;font-size:17px;color:var(--navy);margin-bottom:4px}.dv-b p{font-size:14px;color:var(--ink)}
+.dv-b.g{background:#e8f8ef;border-color:var(--dv-g)}.dv-b.a{background:#fff4de;border-color:var(--dv-a)}.dv-b.r{background:#ffe9ea;border-color:var(--dv-r)}
+.dv-map{display:grid;grid-template-columns:170px 40px 1fr;align-items:start;max-width:960px;margin:0 auto}
+.dv-hub{align-self:center;margin:0;min-width:0}
+.dv-link{align-self:center;height:2px;background:var(--blue);position:relative}
+.dv-link::after{border-left-color:var(--blue);right:-13px;top:-6px}
+.dv-list{position:relative;padding-left:44px}
+.dv-list::before{content:"";position:absolute;left:0;top:30px;bottom:30px;width:2px;background:var(--blue)}
+.dv-sp{position:relative;background:#fff;border-radius:18px;padding:16px 18px;margin-bottom:14px;box-shadow:0 10px 40px -16px rgba(60,90,180,.3)}
+.dv-sp:last-child{margin-bottom:0}
+.dv-sp::before{content:"";position:absolute;left:-44px;top:29px;width:34px;height:2px;background:var(--blue)}
+.dv-sp::after{content:"";position:absolute;left:-13px;top:23px;border:7px solid transparent;border-left-color:var(--blue)}
+.dv-sp header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.dv-e{width:42px;height:42px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:21px;flex:none}
+.dv-sp h3{font-size:18px;color:var(--navy)}
+.dv-sp ul{list-style:none;padding:0;margin:0}
+.dv-sp li{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;font-size:14.5px;padding:7px 0;border-top:1px dashed var(--line)}
+.dv-t{flex:none;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;color:#fff}
+.dv-t.u{background:var(--dv-r)}.dv-t.p{background:var(--dv-a)}.dv-t.g{background:var(--dv-g)}
+.dv-leg{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;font-size:14px;color:var(--mute);margin-top:30px}
+.dv-leg i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px}
+.dv-note{text-align:center;font-size:13px;color:var(--mute);max-width:560px;margin:14px auto 0}
+@media(max-width:760px){
+ .dv-flow{margin-bottom:48px}
+ .dv-branches{grid-template-columns:1fr;gap:0}.dv-branches::before{display:none}
+ .dv-map{grid-template-columns:1fr}
+ .dv-hub{max-width:none}
+ .dv-link{width:2px;height:30px;justify-self:center;margin-bottom:12px}
+ .dv-link::after{border-left-color:transparent;border-top-color:var(--blue);right:auto;top:auto;bottom:-13px;left:-6px}
+ .dv-list{padding-left:30px}
+ .dv-list::before{left:8px}
+ .dv-sp::before{left:-22px;width:14px}.dv-sp::after{left:-9px}
+ .dv-sp li{flex-direction:column;gap:4px}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+ <a href="#top" class="logo">Dra. Maira <b>Cisneros</b></a>
+ <button class="burger" id="bg" aria-label="Menú"><i></i><i></i><i></i></button>
+ <div class="links" id="lk">
+  <a href="#especialidad">Especialidad</a><a href="#derivaciones">Derivaciones</a><a href="#carrera">Carrera</a><a href="#resenas">Reseñas</a>
+ </div>
+</div></nav>
+
+<header class="hero" id="top">
+ <img src="hero.jpg" alt="La Dra. Maira Cisneros sonriendo durante una consulta">
+ <div class="intro">
+  <h1>Maira Cisneros,<br><span>médica de familia</span></h1>
+  <p>Médica egresada de la UBA y especialista en Medicina Familiar y General (CEMIC). Te acompaño en tu salud y la de tu familia.</p>
+  <a class="btn" href="#especialidad">Conocer más</a>
+ </div>
+</header>
+
+<section id="especialidad"><div class="wrap">
+ <h2>¿Qué hace un <b>médico familiar</b>?</h2>
+ <p class="sub">Es tu médico de cabecera: te conoce a vos y a tu entorno.</p>
+ <div class="grid">
+  <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg></div><h3>Primer contacto y prevención</h3><p>Actúa como médico de cabecera, evaluando la salud general, promoviendo hábitos saludables y aplicando vacunas o controles preventivos.</p></div>
+  <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4v6a5 5 0 0 0 10 0V4M9 15v1a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></svg></div><h3>Diagnóstico y tratamiento</h3><p>Resuelve los problemas de salud más frecuentes (tanto agudos como crónicos) en el ámbito ambulatorio.</p></div>
+  <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.5 6 5"/></svg></div><h3>Enfoque global</h3><p>Considera a la persona dentro de su entorno familiar y comunitario, prestando atención a los factores físicos, mentales y sociales que influyen en su bienestar.</p></div>
+  <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><h3>Coordinación y derivación</h3><p>Guía al paciente por el sistema de salud y lo deriva con médicos especialistas cuando el cuadro lo requiere.</p></div>
+ </div>
+</div></section>
+
+<section id="derivaciones"><div class="wrap">
+ <h2><b>Derivaciones</b> a especialistas</h2>
+ <p class="sub">Resuelvo la mayoría de las consultas en el consultorio. Cuando hace falta, te derivo a tiempo y sigo acompañándote.</p>
+ <div class="dv-flow rv">
+  <div class="dv-node main"><b>Tu consulta</b><span>Escucho, examino y evalúo</span></div>
+  <div class="dv-line head"></div>
+  <div class="dv-node"><b>¿Alcanza con el consultorio?</b><span>Valoro signos de alarma y riesgo</span></div>
+  <div class="dv-line"></div>
+  <div class="dv-branches">
+   <div class="dv-branch"><div class="dv-b g"><b>Sí, lo resuelvo</b><p>Tratamiento, indicaciones y control programado.</p></div></div>
+   <div class="dv-branch"><div class="dv-b a"><b>Necesito un especialista</b><p>Interconsulta con resumen clínico. Seguimos en contacto.</p></div></div>
+   <div class="dv-branch"><div class="dv-b r"><b>Es una urgencia</b><p>Derivación inmediata a guardia o emergencias.</p></div></div>
+  </div>
+ </div>
+ <div class="dv-map rv">
+  <div class="dv-node main dv-hub"><b>Medicina familiar</b><span>Tu médico de cabecera</span></div>
+  <div class="dv-link"></div>
+  <div class="dv-list" id="dvl"></div>
+ </div>
+ <div class="dv-leg"><span><i style="background:var(--dv-r)"></i>Urgente: el mismo día</span><span><i style="background:var(--dv-a)"></i>Preferente: pocos días</span><span><i style="background:var(--dv-g)"></i>Programada: turno habitual</span></div>
+ <p class="dv-note">Información general. Los criterios pueden variar según cada caso y la red de salud; ante una urgencia, concurrí a la guardia.</p>
+</div></section>
+
+<section id="carrera" class="tint"><div class="wrap">
+ <h2>Mi <b>carrera</b></h2>
+ <p class="sub">Formación y experiencia.</p>
+ <div class="cols">
+  <div class="rv"><h3>Experiencia</h3><div class="tl">
+   <div class="it"><u>2025 - Presente</u> - Geriatrico Greem. San Fernando.</div>
+   <div class="it"><u>2025 - Presente</u> - Equipo Interdisciplinario de Cuidados Paliativos en San Fernando.</div>
+   <div class="it"><u>2025 - Presente</u> - Consultorio de Demanda Espontanea de medicina familiar en CEMIC</div>
+   <div class="it"><u>2025 - Presente</u> - Consultorio de Medicina Familiar para Controles de Salud, Médico de Cabecera, Control de la Mujer, Acompañamiento de Adultos Mayores</div>
+   <div class="it"><u>2025 - Presente</u> - Docente de Medicina Familiar de CEMIC y Staff de la Carrera de Medicina Familiar del Instituto.</div>
+   <div class="it"><u>2021 a 2023</u> - Auxiliar Médica Municipio de San Fernando – Polideportivo Nº 8<ul><li>Primeros auxilios. Revisión de pediculosis y micosis.</li></ul></div>
+  </div></div>
+  <div class="rv"><h3>Formación</h3><div class="tl">
+   <div class="it edu"><u><b>2026 (Cursando)</b></u> - Posgrado Interdisciplinario en Cuidados Paliativos. Flacso. Facultad Latinoamerican, sede argentina</div>
+   <div class="it edu"><u><b>2022</b></u> - Medicina Universidad de Buenos Aires (UBA). Buenos Aires, Argentina</div>
+   <div class="it edu"><u><b>2025</b></u> - Médica Especialista en Medicina Familiar y General CEMIC. Buenos Aires, Argentina</div>
+  </div></div>
+ </div>
+</div></section>
+
+<section id="resenas" class="tint"><div class="wrap">
+ <h2>Lo que dicen <b>mis pacientes</b></h2>
+ <p class="sub">Opiniones de quienes ya se atendieron.</p>
+ <div class="car rv">
+  <div class="vp"><div class="tr" id="tr"></div></div>
+  <div class="ctl"><button class="ar" id="pv" aria-label="Anterior">←</button><div class="dots" id="dt"></div><button class="ar" id="nt" aria-label="Siguiente">→</button></div>
+ </div>
+</div></section>
+
+<footer><b>Dra. Maira Cisneros</b><br>Medicina Familiar y General · Buenos Aires, Argentina</footer>
+
+<a class="wa" href="https://wa.me/5491130419545?text=Hola%20Dra.%20Maira%2C%20quiero%20agendar%20una%20consulta" target="_blank" rel="noopener">
+ <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 .9-2.200c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>
+ Agendar consulta</a>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// menú
+const bg=$('#bg'),lk=$('#lk');
+bg.onclick=()=>{bg.classList.toggle('x');lk.classList.toggle('open')};
+lk.onclick=e=>{if(e.target.tagName=='A'){bg.classList.remove('x');lk.classList.remove('open')}};
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%2)*.12+'s';io.observe(el)});
+// link activo
+const secs=$$('section'),as=$$('.links a');
+addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-120)c=s.id});as.forEach(a=>a.classList.toggle('on',a.hash=='#'+c))},{passive:true});
+// reseñas
+const R=[['Lucía Fernández','Una médica excelente. Me escuchó con calma, me explicó todo con palabras simples y salí tranquila.'],
+['Martín Gutiérrez','Atiende a toda mi familia. Es muy profesional, puntual y siempre está atenta a cada detalle.'],
+['Carolina Benítez','Me hizo sentir en confianza desde el primer minuto. Se nota que le importa de verdad el paciente.'],
+['Ramiro Altamira','Clara, cálida y muy buena para orientarme. Me derivó con el especialista justo cuando hacía falta.']];
+const tr=$('#tr'),dt=$('#dt');let cur=0,tm;
+R.forEach((r,i)=>{tr.insertAdjacentHTML('beforeend',`<div class="sl"><div class="rc"><div class="av">${r[0][0]}</div><div class="st">★★★★★</div><p>“${r[1]}”</p><strong>${r[0]}</strong><small>Paciente</small></div></div>`);
+ const b=document.createElement('button');b.setAttribute('aria-label','Reseña '+(i+1));b.onclick=()=>go(i,1);dt.appendChild(b)});
+function go(i,reset){cur=(i+R.length)%R.length;tr.style.transform=`translateX(-${cur*100}%)`;[...dt.children].forEach((d,k)=>d.classList.toggle('on',k==cur));if(reset)auto()}
+function auto(){clearInterval(tm);tm=setInterval(()=>go(cur+1),5000)}
+$('#pv').onclick=()=>go(cur-1,1);$('#nt').onclick=()=>go(cur+1,1);
+let x0=null;tr.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+tr.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(cur+(d<0?1:-1),1);x0=null});
+go(0);auto();
+// encuesta
+const SCRIPT_URL='PEGAR_AQUI_LA_URL_DEL_APPS_SCRIPT';
+const A={};
+$$('.sc').forEach(g=>{for(let n=1;n<=5;n++){const b=document.createElement('button');b.textContent=n;b.onclick=()=>{[...g.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');A[g.dataset.k]=n;$('#nx').disabled=!(A.precio&&A.entiende);$('#sd').disabled=!A.miedo};g.appendChild(b)}});
+const show=id=>{$$('.step').forEach(s=>s.classList.toggle('show',s.id==id))};
+$('#nx').onclick=()=>{show('s2');$('#p2').classList.add('on');$('#sv').scrollIntoView({behavior:'smooth',block:'start'})};
+$('#bk').onclick=()=>{show('s1');$('#p2').classList.remove('on')};
+$('#sd').onclick=async()=>{
+ const b=$('#sd');b.disabled=true;b.textContent='Enviando…';
+ const body=new URLSearchParams({precio:A.precio,entiende:A.entiende,miedo:A.miedo,comentario:$('#cm').value.trim()});
+ try{await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body})}catch(e){}
+ show('s3');$$('.pb i').forEach(i=>i.classList.add('on'));
+};
+</script>
+<script>
+(function(){
+var L={u:'Urgente',p:'Preferente',g:'Programada'};
+var D=[["❤️","Cardiología",[["Dolor de pecho típico o sospecha de infarto","u"],["Insuficiencia cardíaca descompensada","u"],["Hipertensión resistente al tratamiento","p"],["Soplo nuevo o palpitaciones","g"]]],
+["🧠","Neurología",[["Déficit neurológico agudo (sospecha de ACV)","u"],["Primera convulsión","u"],["Cefalea con signos de alarma","p"],["Temblor o pérdida de memoria","g"]]],
+["🫁","Neumología",[["Falta de aire intensa o EPOC grave","u"],["Nódulo en la radiografía","p"],["Tos crónica sin causa clara","g"]]],
+["🍽️","Gastroenterología",[["Sangrado digestivo","u"],["Dificultad progresiva para tragar","p"],["Pérdida de peso con anemia","p"],["Reflujo que no mejora","g"]]],
+["🦋","Endocrinología",[["Descompensación diabética grave","u"],["Nódulo de tiroides sospechoso","p"],["Diabetes sin control con varios fármacos","p"]]],
+["🦴","Traumatología",[["Fractura o luxación","u"],["Lumbalgia con déficit neurológico","u"],["Dolor articular persistente","g"]]],
+["🌸","Ginecología y obstetricia",[["Sangrado en el embarazo","u"],["Embarazo de alto riesgo","p"],["Papanicolaou alterado","p"],["Trastornos del ciclo","g"]]],
+["🧘","Salud mental",[["Riesgo suicida o psicosis aguda","u"],["Depresión que no mejora","p"],["Consumo problemático de sustancias","p"]]],
+["👁️","Oftalmología",[["Pérdida súbita de la visión","u"],["Control de retinopatía diabética","g"],["Alteración visual persistente","g"]]],
+["👂","Otorrinolaringología",[["Hipoacusia súbita","u"],["Ronquera de más de 3 semanas","p"],["Otitis o sinusitis recurrentes","g"]]],
+["🚰","Urología y nefrología",[["Retención urinaria o cólico complicado","u"],["Sangre en la orina","p"],["PSA elevado","p"],["Enfermedad renal en descenso","p"]]],
+["🧴","Dermatología",[["Lesión pigmentada que cambia","p"],["Psoriasis o eccema extensos","g"],["Acné que no responde","g"]]]];
+document.getElementById('dvl').innerHTML=D.map(function(s){return '<article class="dv-sp"><header><span class="dv-e">'+s[0]+'</span><h3>'+s[1]+'</h3></header><ul>'+s[2].map(function(r){return '<li><span>'+r[0]+'</span><span class="dv-t '+r[1]+'">'+L[r[1]]+'</span></li>'}).join('')+'</ul></article>'}).join('');
+})();
+</script>
+</body>
+</html>
+
 
