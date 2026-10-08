@@ -177,6 +177,16 @@ footer b{color:var(--navy)}
 .faq summary{font-weight:700;color:var(--navy);cursor:pointer}
 .faq p{color:var(--mute);margin-top:10px;font-size:15px}
 footer a{color:var(--blue);font-weight:600}
+.card.wide{grid-column:1/-1}
+.ck{list-style:none;margin:8px 0 12px;padding:0;display:grid;gap:6px;color:var(--ink);font-size:15px}
+.ck li{display:flex;gap:10px;align-items:flex-start}
+.ck li>span{flex:none;width:22px;text-align:center}
+.card .note{color:var(--navy);font-weight:600;margin-top:4px}
+.hl{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.hl div{flex:1;min-width:130px;background:var(--bg);border-radius:16px;padding:14px 16px;text-align:center}
+.hl b{display:block;color:var(--blue-d);font-size:28px;font-weight:800;line-height:1.1}
+.hl small{display:block;color:var(--mute);font-size:13px;font-weight:600;margin-top:4px}
+</style>
 </style>
 </head>
 <body>
@@ -205,6 +215,9 @@ footer a{color:var(--blue);font-weight:600}
   <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4v6a5 5 0 0 0 10 0V4M9 15v1a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></svg></div><h3>Diagnóstico y tratamiento</h3><p>Resuelve los problemas de salud más frecuentes (tanto agudos como crónicos) en el ámbito ambulatorio.</p></div>
   <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.5 6 5"/></svg></div><h3>Enfoque global</h3><p>Considera a la persona dentro de su entorno familiar y comunitario, prestando atención a los factores físicos, mentales y sociales que influyen en su bienestar.</p></div>
   <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><h3>Coordinación y derivación</h3><p>Guía al paciente por el sistema de salud y lo deriva con médicos especialistas cuando el cuadro lo requiere.</p></div>
+  <div class="card ico-l rv"><div class="ico">🩺</div><h3>¿Qué hace un médico/a de familia?</h3><ul class="ck"><li><span>👥</span>Atención de todas las edades</li><li><span>❤️</span>Cuidado integral</li><li><span>📋</span>Seguimiento a lo largo del tiempo</li><li><span>🛡️</span>Prevención y promoción de la salud</li></ul><p class="note">Cuidamos a la persona en su contexto y en cada etapa de la vida.</p></div>
+  <div class="card ico-l rv"><div class="ico">🔍</div><h3>¿Por qué controlarte?</h3><ul class="ck"><li><span>✓</span>Detectar a tiempo</li><li><span>✓</span>Prevenir enfermedades</li><li><span>✓</span>Mantener vacunas al día</li><li><span>✓</span>Evaluar hábitos y bienestar</li></ul></div>
+  <div class="card ico-l wide rv"><div class="ico">🚭</div><h3>Cesación tabáquica</h3><p class="note">Podemos ayudarte a dejar de fumar.</p><ul class="ck"><li><span>✓</span><b>Mejora en 24 horas:</b> aumenta la oxigenación...</li><li><span>✓</span><b>A las pocas semanas:</b> respirás mejor.</li><li><span>✓</span><b>A largo plazo:</b> reduce el riesgo cardiovascular...</li></ul></div>
  </div>
 </div></section>
 
@@ -262,8 +275,7 @@ footer a{color:var(--blue);font-weight:600}
  <p class="sub">Atención particular, presencial y con turno previo.</p>
  <div class="cols">
   <div class="stack rv">
-   <div class="card"><h3>Atención particular</h3><p>Sin obras sociales ni prepagas. El valor de la consulta online es de $40.000 y dura 30 minutos</p></div>
-   <div class="card"><h3>Modalidad</h3><span class="tg">Presencial</span></div>
+   <div class="card"><h3>Atención particular</h3><p>Sin obras sociales ni prepagas.</p><div class="hl"><div><b>$40.000</b><small>Valor de la consulta</small></div><div><b>30 min</b><small>Duración de la sesión</small></div></div></div>
    <div class="card" id="lugar" hidden><h3>Dónde atiendo</h3><p id="dir"></p><iframe id="map" title="Mapa" loading="lazy" style="width:100%;height:220px;border:0;border-radius:14px;margin-top:12px" hidden></iframe></div>
   </div>
   <div class="calbox rv" id="cal"></div>
