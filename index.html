@@ -330,7 +330,7 @@ const CFG={
 const WA='https://wa.me/5491130419545?text=Hola%20Dra.%20Maira%2C%20quiero%20agendar%20una%20consulta';
 const cu=CFG.calendario;
 $('#cal').innerHTML=!cu?
- `<h3 style="color:var(--navy)">Turnos online</h3><p style="color:var(--mute)">Escribime por WhatsApp y coordinamos el día y horario.</p><div><a class="btn" style="animation:none" href="${WA}" target="_blank" rel="noopener">Pedir turno por WhatsApp</a></div>`:
+ `<h3 style="color:var(--navy)">Turnos online</h3><p style="color:var(--mute)">$40.000</p><p style="color:var(--mute)">Escribime por WhatsApp y coordinamos el día y horario.</p><div><a class="btn" style="animation:none" href="${WA}" target="_blank" rel="noopener">Pedir turno por WhatsApp</a></div>`:
  cu.includes('calendar.google.com/calendar/appointments')?
  `<iframe src="${cu}" title="Agenda de turnos" loading="lazy"></iframe><a href="${cu}" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;font-size:14px">Abrir agenda en una pestaña nueva</a>`:
  `<h3 style="color:var(--navy)">Turnos online</h3><p style="color:var(--mute)">Elegí el día y horario que te quede cómodo desde su agenda.</p><div><a class="btn" style="animation:none" href="${cu}" target="_blank" rel="noopener">Reservar turno</a></div><a href="${WA}" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;font-size:14px">¿Preferís WhatsApp?</a>`;
