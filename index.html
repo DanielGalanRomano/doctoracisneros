@@ -195,6 +195,52 @@ footer a{color:var(--blue);font-weight:600}
 .hl div{flex:1;min-width:130px;background:var(--bg);border-radius:16px;padding:14px 16px;text-align:center}
 .hl b{display:block;color:var(--blue-d);font-size:28px;font-weight:800;line-height:1.1}
 .hl small{display:block;color:var(--mute);font-size:13px;font-weight:600;margin-top:4px}
+
+/* monitoreá tu salud */
+#monitoreo{padding:52px 0}
+#monitoreo .sub{margin-bottom:24px}
+.sm-box{max-width:700px;margin:0 auto;background:#fff;border-radius:22px;padding:22px;box-shadow:0 14px 50px -16px rgba(60,90,180,.35);font-size:14px}
+.sm-box h3{font-size:14.5px;color:var(--navy);margin:16px 0 8px;font-weight:700}
+.sm-box h3:first-child{margin-top:0}
+.sm-fields{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sm-f{display:block;font-size:12.5px;font-weight:600;color:var(--mute)}
+.sm-f select,.sm-f input{width:100%;margin-top:4px;height:42px;padding:0 10px;font:inherit;font-size:14px;font-weight:600;color:var(--ink);border:1.5px solid var(--line);border-radius:12px;background:#fff}
+.sm-f select:focus,.sm-f input:focus{outline:2px solid #bcd0ff;border-color:var(--blue)}
+.sm-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sm-chip{position:relative}
+.sm-chip input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
+.sm-chip span{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border:1.5px solid var(--line);border-radius:999px;font-weight:600;font-size:13.5px;color:var(--ink);background:#fff;transition:.2s}
+.sm-chip input:checked+span{background:var(--blue);border-color:var(--blue);color:#fff}
+.sm-chip input:focus-visible+span{outline:2px solid var(--blue);outline-offset:2px}
+.sm-go{display:block;width:100%;margin-top:18px;padding:13px;border:0;border-radius:999px;background:var(--blue);color:#fff;font:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 10px 24px -8px rgba(79,128,255,.7);transition:transform .2s,background .2s;text-align:center}
+.sm-go:hover{background:var(--blue-d);transform:translateY(-2px)}
+.sm-err{color:var(--dv-r);font-weight:600;font-size:13px;min-height:18px;margin-top:8px;text-align:center}
+.sm-leg{font-size:12px;color:var(--mute);margin-top:14px;text-align:center}
+#sm-res{display:none}
+.sm-sum{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.sm-imc{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
+.sm-imc small{display:block;font-weight:500;color:var(--mute);font-size:12px}
+.sm-pill{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:99px;white-space:nowrap}
+.sm-pill.alto{background:#ffe9ea;color:#c0353a}.sm-pill.medio{background:#fff4de;color:#9a6200}.sm-pill.bajo{background:#e8f8ef;color:#13804a}
+.sm-list{display:grid;gap:8px}
+.sm-r{display:flex;gap:11px;padding:11px 12px;border-radius:14px;background:var(--bg);border-left:4px solid var(--line)}
+.sm-r.alto{border-left-color:var(--dv-r);background:#fff5f5}.sm-r.medio{border-left-color:var(--dv-a);background:#fffaf0}.sm-r.bajo{border-left-color:var(--dv-g)}
+.sm-ri{flex:none;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:19px}
+.sm-rb{min-width:0;flex:1}
+.sm-rt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sm-rt h4{font-size:14.5px;color:var(--navy);font-weight:700;margin:0}
+.sm-tag{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:99px;margin-left:auto}
+.alto .sm-tag{background:var(--dv-r);color:#fff}.medio .sm-tag{background:var(--dv-a);color:#fff}.bajo .sm-tag{background:var(--dv-g);color:#fff}
+.sm-rb p{font-size:13px;line-height:1.45;margin-top:3px;color:var(--ink)}
+.sm-rb p.m{color:var(--mute);font-size:12.5px}
+.sm-low{margin-top:10px}
+.sm-low summary{cursor:pointer;font-weight:700;color:var(--blue-d);font-size:13.5px;padding:6px 2px}
+.sm-low .sm-list{margin-top:8px}
+.sm-act{display:flex;gap:8px;margin-top:14px}
+.sm-act a,.sm-act button{flex:1;text-align:center;padding:11px;border-radius:999px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.sm-act a{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:760px){.sm-fields{grid-template-columns:1fr 1fr}.sm-box{padding:18px 16px}.sm-tag{margin-left:0}}
+@media(min-width:761px) and (max-width:940px){.links{gap:14px;font-size:13px}.logo{font-size:17px}}
 </style>
 </style>
 </head>
@@ -203,7 +249,7 @@ footer a{color:var(--blue);font-weight:600}
  <a href="#top" class="logo">Dra. Maira <b>Cisneros</b></a>
  <button class="burger" id="bg" aria-label="Menú"><i></i><i></i><i></i></button>
  <div class="links" id="lk">
-  <a href="#especialidad">Especialidad</a><a href="#servicios">Servicios</a><a href="#derivaciones">Derivaciones</a><a href="#carrera">Carrera</a><a href="#turnos">Turnos</a><a href="#faq">Preguntas</a>
+  <a href="#especialidad">Especialidad</a><a href="#servicios">Servicios</a><a href="#monitoreo">Monitoreá tu salud</a><a href="#derivaciones">Derivaciones</a><a href="#carrera">Carrera</a><a href="#turnos">Turnos</a><a href="#faq">Preguntas</a>
  </div>
 </div></nav>
 
@@ -240,6 +286,33 @@ footer a{color:var(--blue);font-weight:600}
  <h2>Qué <b>ofrezco</b> en el consultorio</h2>
  <p class="sub">Atención para adultos y adultos mayores.</p>
  <div class="grid"><div class="card ico-l rv"><div class="ico">🩺</div><h3>Controles de salud y preocupacional</h3><p>Control periódico, laboratorios y estudios de rutina según tu edad y antecedentes.</p></div><div class="card ico-l rv"><div class="ico">📄</div><h3>Certificados médicos</h3><p>Aptos físicos, certificados laborales y escolares, luego de la evaluación clínica.</p></div><div class="card ico-l rv"><div class="ico">🌸</div><h3>Control de la mujer</h3><p>Papanicolaou, anticoncepción y controles ginecológicos de rutina.</p></div><div class="card ico-l rv"><div class="ico">🧓</div><h3>Adultos mayores</h3><p>Seguimiento integral: medicación, caídas, memoria y acompañamiento de la familia.</p></div><div class="card ico-l rv"><div class="ico">🕊️</div><h3>Cuidados paliativos</h3><p>Integro el equipo interdisciplinario de Cuidados Paliativos de San Fernando y me formo en el posgrado de FLACSO. Acompaño al paciente y a su familia.</p></div><div class="card ico-l rv"><div class="ico">💉</div><h3>Vacunación y prevención</h3><p>Calendario de vacunas y controles preventivos para toda la familia.</p></div></div>
+</div></section>
+
+<section id="monitoreo"><div class="wrap">
+ <h2>Monitoreá tu <b>salud</b></h2>
+ <p class="sub">Contanos tu edad y tus hábitos y te mostramos qué controles te convienen y con qué urgencia.</p>
+ <div class="sm-box rv">
+  <form id="sm-form" novalidate>
+   <h3>👤 Tus datos</h3>
+   <div class="sm-fields">
+    <label class="sm-f" for="sm-edad">🎂 Edad<select id="sm-edad"><option value="">Elegir</option></select></label>
+    <label class="sm-f" for="sm-sexo">⚧️ Género<select id="sm-sexo"><option value="">Elegir</option><option value="F">Femenino</option><option value="M">Masculino</option></select></label>
+    <label class="sm-f" for="sm-peso">⚖️ Peso (kg)<input type="number" id="sm-peso" min="30" max="250" step="0.1" inputmode="decimal" placeholder="68"></label>
+    <label class="sm-f" for="sm-altura">📏 Altura (cm)<input type="number" id="sm-altura" min="120" max="230" inputmode="numeric" placeholder="165"></label>
+   </div>
+   <h3>⚠️ Hábitos <span style="font-weight:500;color:var(--mute)">(marcá los que tengas)</span></h3>
+   <div class="sm-chips" id="sm-hab"></div>
+   <h3>👪 Antecedentes en tu familia</h3>
+   <div class="sm-chips" id="sm-fam"></div>
+   <button type="submit" class="sm-go">🔍 Ver qué estudios me debería hacer</button>
+   <p class="sm-err" id="sm-err" role="alert"></p>
+  </form>
+  <div id="sm-res" aria-live="polite">
+   <div id="sm-out"></div>
+   <div class="sm-act"><button type="button" id="sm-back">✏️ Cambiar datos</button><a href="#turnos">Sacar turno</a></div>
+  </div>
+  <p class="sm-leg">Información orientativa basada en las recomendaciones de prevención del Ministerio de Salud de la Nación. No reemplaza la consulta médica.</p>
+ </div>
 </div></section>
 
 <section id="derivaciones"><div class="wrap">
@@ -380,6 +453,204 @@ var D=[["❤️","Cardiología",[["Dolor de pecho típico o sospecha de infarto"
 ["🚰","Urología y nefrología",[["Retención urinaria o cólico complicado","u"],["Sangre en la orina","p"],["PSA elevado","p"],["Enfermedad renal en descenso","p"]]],
 ["🧴","Dermatología",[["Lesión pigmentada que cambia","p"],["Psoriasis o eccema extensos","g"],["Acné que no responde","g"]]]];
 document.getElementById('dvl').innerHTML=D.map(function(s){return '<article class="dv-sp"><header><span class="dv-e">'+s[0]+'</span><h3>'+s[1]+'</h3></header><ul>'+s[2].map(function(r){return '<li><span>'+r[0]+'</span><span class="dv-t '+r[1]+'">'+L[r[1]]+'</span></li>'}).join('')+'</ul></article>'}).join('');
+})();
+</script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var HABITOS=[{id:"mal",e:"🍔",t:"Come mal",d:"Ultraprocesados, frituras, mucha azúcar o sal"},{id:"alcohol",e:"🍺",t:"Toma alcohol"},{id:"drogas",e:"💊",t:"Consume drogas"},{id:"sed",e:"🛋️",t:"Sedentario",d:"Menos de 150 min de actividad por semana"},{id:"fuma",e:"🚬",t:"Fuma"}];
+var FAMILIA=[{id:"diab",e:"🍬",t:"Diabetes"},{id:"tiro",e:"🦋",t:"Tiroides"},{id:"hta",e:"❤️",t:"Hipertensión"},{id:"cardio",e:"🫀",t:"Infarto o ACV temprano"},{id:"cancer",e:"🎗️",t:"Cáncer",d:"Mama, colon o próstata"}];
+var se=$("sm-edad");for(var a=15;a<=90;a++){var o=document.createElement("option");o.value=a;o.textContent=a+" años";se.appendChild(o)}
+function chips(list,box,name){$(box).innerHTML=list.map(function(x){return '<label class="sm-chip"'+(x.d?' title="'+x.d+'"':'')+'><input type="checkbox" name="'+name+'" value="'+x.id+'"><span><span aria-hidden="true">'+x.e+'</span>'+x.t+'</span></label>'}).join("")}
+chips(HABITOS,"sm-hab","smh");chips(FAMILIA,"sm-fam","smf");
+var CONDS=[
+    {n:"Hipertensión arterial",i:"🩸",cat:"Cardiovascular",si:"🩺",
+      estudio:"Control de tensión arterial",frec:"Al menos 1 vez al año",
+      aplica:function(c){return c.edad>=15},
+      pts:function(c,s){
+        if(c.edad>=45)s(1,"edad ≥ 45");
+        if(c.imc>=30)s(2,"obesidad");else if(c.imc>=25)s(1,"sobrepeso");
+        if(c.h.mal)s(1,"alimentación con exceso de sal/ultraprocesados");
+        if(c.h.alcohol)s(1,"alcohol");if(c.h.sed)s(1,"sedentarismo");if(c.h.fuma)s(1,"tabaco");
+        if(c.f.hta)s(2,"antecedente familiar de hipertensión");}},
+    {n:"Diabetes tipo 2",i:"🍬",cat:"Metabólica",si:"🧪",
+      estudio:"Glucemia en ayunas (y hemoglobina glicosilada si da alterada)",frec:"Cada 1 a 3 años; anual si hay riesgo",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.edad>=60)s(2,"edad ≥ 60");else if(c.edad>=45)s(1,"edad ≥ 45");
+        if(c.imc>=30)s(2,"obesidad");else if(c.imc>=25)s(1,"sobrepeso");
+        if(c.h.sed)s(1,"sedentarismo");if(c.h.mal)s(1,"alimentación rica en azúcares");
+        if(c.f.diab)s(2,"antecedente familiar de diabetes");}},
+    {n:"Colesterol y triglicéridos altos",i:"🧈",cat:"Metabólica",si:"🧪",
+      estudio:"Perfil lipídico (colesterol total, HDL, LDL y triglicéridos)",frec:"Cada 1 a 5 años según riesgo",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.edad>=40)s(1,"edad ≥ 40");if(c.imc>=30)s(1,"obesidad");
+        if(c.h.mal)s(1,"alimentación rica en grasas");if(c.h.sed)s(1,"sedentarismo");if(c.h.fuma)s(1,"tabaco");
+        if(c.h.alcohol)s(1,"alcohol");if(c.f.cardio)s(1,"antecedente familiar cardíaco");if(c.f.diab)s(1,"antecedente de diabetes");}},
+    {n:"Sobrepeso y obesidad",i:"⚖️",cat:"Metabólica",si:"📏",
+      estudio:"Cálculo de IMC, circunferencia de cintura y consulta nutricional",frec:"Control anual",
+      aplica:function(c){return c.edad>=15},
+      pts:function(c,s){
+        if(c.imc>=30)s(4,"IMC en rango de obesidad");else if(c.imc>=25)s(2,"IMC en rango de sobrepeso");
+        else if(c.imc&&c.imc<18.5)s(2,"IMC bajo el rango normal");
+        if(c.h.mal)s(1,"alimentación poco saludable");if(c.h.sed)s(1,"sedentarismo");}},
+    {n:"Enfermedad cardiovascular (infarto)",i:"🫀",cat:"Cardiovascular",si:"📈",
+      estudio:"Evaluación de riesgo cardiovascular y electrocardiograma (ergometría si el riesgo es alto)",frec:"Cada 1 a 2 años",
+      aplica:function(c){return c.edad>=35},
+      pts:function(c,s){
+        if(c.edad>=65)s(2,"edad ≥ 65");else if(c.edad>=50)s(1,"edad ≥ 50");
+        if(c.sexo==="M"&&c.edad>=45)s(1,"sexo masculino ≥ 45");
+        if(c.h.fuma)s(2,"tabaco");if(c.h.sed)s(1,"sedentarismo");if(c.h.mal)s(1,"alimentación poco saludable");
+        if(c.h.drogas)s(1,"consumo de drogas");if(c.imc>=30)s(1,"obesidad");
+        if(c.f.cardio)s(2,"antecedente familiar cardíaco");if(c.f.diab)s(1,"antecedente de diabetes");if(c.f.hta)s(1,"antecedente de hipertensión");}},
+    {n:"Accidente cerebrovascular (ACV)",i:"🧠",cat:"Cardiovascular",si:"🩺",
+      estudio:"Control de tensión arterial y ECG; eco-Doppler de vasos del cuello si el riesgo es alto",frec:"Anual si hay riesgo",
+      aplica:function(c){return c.edad>=40},
+      pts:function(c,s){
+        if(c.edad>=70)s(2,"edad ≥ 70");else if(c.edad>=55)s(1,"edad ≥ 55");
+        if(c.h.fuma)s(2,"tabaco");if(c.h.alcohol)s(1,"alcohol");if(c.h.drogas)s(1,"consumo de drogas");
+        if(c.h.sed)s(1,"sedentarismo");if(c.imc>=30)s(1,"obesidad");
+        if(c.f.hta)s(1,"antecedente de hipertensión");if(c.f.cardio)s(1,"antecedente familiar de ACV/infarto");}},
+    {n:"Cáncer de cuello de útero",i:"🎀",cat:"Cáncer",si:"🔬",
+      estudio:null,frec:"PAP cada 3 años (25–29) · Test de VPH cada 5 años (30–64)",
+      aplica:function(c){return c.sexo==="F"&&c.edad>=25&&c.edad<=64},
+      estudioFn:function(c){return c.edad>=30?"Test de VPH (con PAP si el resultado es positivo)":"Papanicolaou (PAP)"},
+      pts:function(c,s){
+        s(2,"edad en que el tamizaje está indicado");
+        if(c.h.fuma)s(1,"tabaco");if(c.h.drogas)s(1,"consumo de drogas");}},
+    {n:"Cáncer de mama",i:"🎗️",cat:"Cáncer",si:"🩻",
+      estudio:"Examen clínico mamario y mamografía",frec:"Mamografía cada 2 años entre 50 y 70; antes si hay antecedentes",
+      aplica:function(c){return c.sexo==="F"&&c.edad>=40},
+      pts:function(c,s){
+        if(c.edad>=50)s(2,"edad en que se recomienda la mamografía");else s(1,"edad ≥ 40");
+        if(c.f.cancer)s(2,"antecedente familiar de cáncer");if(c.h.alcohol)s(1,"alcohol");
+        if(c.imc>=30)s(1,"obesidad");if(c.h.sed)s(1,"sedentarismo");}},
+    {n:"Cáncer colorrectal",i:"🫃",cat:"Cáncer",si:"🧪",
+      estudio:"Test de sangre oculta en materia fecal (inmunológico); colonoscopia si da positivo o hay antecedentes",frec:"Test cada 2 años desde los 50",
+      aplica:function(c){return (c.edad>=50&&c.edad<=75)||(c.edad>=40&&c.f.cancer)},
+      pts:function(c,s){
+        if(c.edad>=50)s(2,"edad en que se recomienda el tamizaje");
+        if(c.f.cancer)s(2,"antecedente familiar de cáncer");if(c.h.mal)s(1,"alimentación pobre en fibra / exceso de carnes procesadas");
+        if(c.h.alcohol)s(1,"alcohol");if(c.h.fuma)s(1,"tabaco");if(c.h.sed)s(1,"sedentarismo");if(c.imc>=30)s(1,"obesidad");}},
+    {n:"Cáncer de pulmón",i:"🫁",cat:"Cáncer",si:"🩻",
+      estudio:"Consulta con neumonología y evaluación de tomografía de tórax de baja dosis",frec:"Anual, según indicación médica",
+      aplica:function(c){return c.h.fuma&&c.edad>=45},
+      pts:function(c,s){
+        s(3,"tabaco");if(c.edad>=55)s(1,"edad ≥ 55");if(c.f.cancer)s(1,"antecedente familiar de cáncer");}},
+    {n:"Cáncer de próstata",i:"🔵",cat:"Cáncer",si:"🩺",
+      estudio:"Consulta con urología (tacto rectal y PSA, decidido junto al médico)",frec:"Cada 1 a 2 años desde los 50 (45 con antecedentes)",
+      aplica:function(c){return c.sexo==="M"&&(c.edad>=50||(c.edad>=45&&c.f.cancer))},
+      pts:function(c,s){
+        if(c.edad>=65)s(2,"edad ≥ 65");else s(1,"edad ≥ 50");
+        if(c.f.cancer)s(2,"antecedente familiar de cáncer");if(c.imc>=30)s(1,"obesidad");}},
+    {n:"Cáncer de piel",i:"☀️",cat:"Cáncer",si:"🔍",
+      estudio:"Examen dermatológico de lunares y manchas",frec:"Anual; antes si un lunar cambia",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.edad>=65)s(2,"edad ≥ 65");else if(c.edad>=50)s(1,"edad ≥ 50");
+        if(c.f.cancer)s(1,"antecedente familiar de cáncer");}},
+    {n:"EPOC y daño pulmonar",i:"🌬️",cat:"Respiratoria",si:"🫁",
+      estudio:"Espirometría",frec:"Cada 1 a 2 años en fumadores",
+      aplica:function(c){return c.edad>=40&&(c.h.fuma||c.h.drogas)},
+      pts:function(c,s){
+        if(c.h.fuma)s(3,"tabaco");if(c.h.drogas)s(1,"consumo de sustancias inhaladas");if(c.edad>=55)s(1,"edad ≥ 55");}},
+    {n:"Hígado graso y enfermedad hepática",i:"🍷",cat:"Digestiva",si:"🧪",
+      estudio:"Hepatograma (TGO, TGP, GGT) y ecografía abdominal",frec:"Cada 1 a 2 años si hay riesgo",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.h.alcohol)s(2,"alcohol");if(c.imc>=30)s(2,"obesidad");else if(c.imc>=25)s(1,"sobrepeso");
+        if(c.h.mal)s(1,"alimentación poco saludable");if(c.h.drogas)s(1,"consumo de drogas");
+        if(c.f.diab)s(1,"antecedente de diabetes");if(c.h.sed)s(1,"sedentarismo");}},
+    {n:"Enfermedad renal crónica",i:"🫘",cat:"Renal",si:"🧪",
+      estudio:"Creatinina con filtrado glomerular y orina completa (albuminuria)",frec:"Anual si hay riesgo",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.f.diab)s(1,"antecedente de diabetes");if(c.f.hta)s(1,"antecedente de hipertensión");
+        if(c.edad>=60)s(1,"edad ≥ 60");if(c.imc>=30)s(1,"obesidad");if(c.h.fuma)s(1,"tabaco");
+        if(c.h.drogas)s(1,"consumo de drogas");if(c.h.alcohol)s(1,"alcohol");}},
+    {n:"Enfermedades de la tiroides",i:"🦋",cat:"Endocrina",si:"🧪",
+      estudio:"TSH (hormona estimulante de la tiroides)",frec:"Cada 3 a 5 años; anual si hay antecedentes",
+      aplica:function(c){return c.edad>=18},
+      pts:function(c,s){
+        if(c.f.tiro)s(3,"antecedente familiar de tiroides");
+        if(c.sexo==="F"&&c.edad>=35)s(1,"mujer ≥ 35");if(c.edad>=60)s(1,"edad ≥ 60");}},
+    {n:"Osteoporosis",i:"🦴",cat:"Huesos",si:"🩻",
+      estudio:"Densitometría ósea y dosaje de vitamina D",frec:"Cada 2 años según resultado",
+      aplica:function(c){return (c.sexo==="F"&&c.edad>=50)||(c.sexo==="M"&&c.edad>=65)},
+      pts:function(c,s){
+        if(c.sexo==="F"&&c.edad>=65)s(3,"mujer ≥ 65");else if(c.sexo==="F")s(1,"posmenopausia");
+        if(c.sexo==="M"&&c.edad>=70)s(2,"hombre ≥ 70");else if(c.sexo==="M")s(1,"hombre ≥ 65");
+        if(c.h.fuma)s(1,"tabaco");if(c.h.alcohol)s(1,"alcohol");if(c.h.sed)s(1,"sedentarismo");
+        if(c.imc&&c.imc<18.5)s(1,"bajo peso");if(c.h.mal)s(1,"alimentación pobre en calcio");}},
+    {n:"Depresión y ansiedad",i:"🧘",cat:"Salud mental",si:"💬",
+      estudio:"Consulta de salud mental con cuestionarios PHQ-9 y GAD-7",frec:"Anual o ante cualquier malestar sostenido",
+      aplica:function(c){return c.edad>=15},
+      pts:function(c,s){
+        if(c.h.drogas)s(2,"consumo de drogas");if(c.h.alcohol)s(1,"alcohol");
+        if(c.h.sed)s(1,"sedentarismo");if(c.h.fuma)s(1,"tabaco");if(c.f.cardio)s(0,"");}},
+    {n:"VIH, sífilis y hepatitis B/C",i:"🛡️",cat:"Infecciosas",si:"🧪",
+      estudio:"Test de VIH, VDRL (sífilis) y serología de hepatitis B y C. Es gratuito y confidencial",frec:"Al menos una vez en la vida y según exposición",
+      aplica:function(c){return c.edad>=15},
+      pts:function(c,s){
+        s(1,"se recomienda testear al menos una vez");
+        if(c.h.drogas)s(2,"consumo de drogas");if(c.h.alcohol)s(1,"alcohol (conductas de riesgo)");}},
+    {n:"Glaucoma y salud visual",i:"👁️",cat:"Visión",si:"🔍",
+      estudio:"Control oftalmológico: agudeza visual, presión ocular y fondo de ojo",frec:"Cada 1 a 2 años desde los 40",
+      aplica:function(c){return c.edad>=40},
+      pts:function(c,s){
+        if(c.edad>=60)s(2,"edad ≥ 60");else s(1,"edad ≥ 40");
+        if(c.f.diab)s(1,"antecedente de diabetes");if(c.f.hta)s(1,"antecedente de hipertensión");if(c.h.fuma)s(1,"tabaco");}}
+  ];
+
+var NIVEL={alto:{t:"Riesgo alto",u:"Urgencia alta",txt:"turno en los próximos 15 a 30 días",ue:"🔴"},medio:{t:"Riesgo moderado",u:"Urgencia media",txt:"dentro de los próximos 3 meses",ue:"🟠"},bajo:{t:"Riesgo bajo",u:"Urgencia baja",txt:"control de rutina",ue:"🟢"}};
+function nivel(p){return p>=4?"alto":(p>=2?"medio":"bajo")}
+function esc(t){return String(t).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]})}
+function row(r,c,why){
+  var d=r.d,n=NIVEL[r.lvl],est=d.estudioFn?d.estudioFn(c):d.estudio;
+  return '<article class="sm-r '+r.lvl+'"><div class="sm-ri" aria-hidden="true">'+d.i+'</div><div class="sm-rb">'+
+   '<div class="sm-rt"><h4>'+esc(d.n)+'</h4><span class="sm-tag">'+n.t+'</span></div>'+
+   '<p>'+d.si+' <b>'+esc(est)+'</b></p>'+
+   '<p class="m">'+n.ue+' '+n.u+': '+n.txt+' · 🗓️ '+esc(d.frec)+'</p>'+
+   (why&&r.mot.length?'<p class="m">Por: '+esc(r.mot.join(", "))+'.</p>':'')+
+  '</div></article>';
+}
+$("sm-form").addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var edad=parseInt(se.value,10),sexo=$("sm-sexo").value,peso=parseFloat($("sm-peso").value),alt=parseFloat($("sm-altura").value);
+  var err=$("sm-err");err.textContent="";
+  if(!edad||!sexo||!peso){err.textContent="Completá edad, género y peso para ver tus resultados.";return}
+  var h={},f={};
+  document.querySelectorAll("input[name=smh]:checked").forEach(function(x){h[x.value]=true});
+  document.querySelectorAll("input[name=smf]:checked").forEach(function(x){f[x.value]=true});
+  var imc=alt>0?peso/Math.pow(alt/100,2):0;
+  var c={edad:edad,sexo:sexo,peso:peso,imc:imc,h:h,f:f};
+  var out=[];
+  CONDS.forEach(function(d){
+    if(!d.aplica(c))return;
+    var p=0,mot=[];d.pts(c,function(n,m){if(n>0){p+=n;if(m)mot.push(m)}});
+    out.push({d:d,p:p,lvl:nivel(p),mot:mot});
+  });
+  var ord={alto:0,medio:1,bajo:2};
+  out.sort(function(a,b){return ord[a.lvl]-ord[b.lvl]||b.p-a.p});
+  var cnt={alto:0,medio:0,bajo:0};out.forEach(function(r){cnt[r.lvl]++});
+  var imcTxt="";
+  if(imc){var cat=imc<18.5?"Por debajo del rango normal":imc<25?"Rango normal":imc<30?"Sobrepeso":"Obesidad";
+    imcTxt='<div class="sm-imc">⚖️ IMC '+imc.toFixed(1)+'<small>'+cat+(edad<18?" (en menores de 18 se evalúa con percentiles)":"")+'</small></div>'}
+  else imcTxt='<div class="sm-imc"><small>Sin altura no se calcula el IMC.</small></div>';
+  var top=out.filter(function(r){return r.lvl!=="bajo"}),low=out.filter(function(r){return r.lvl==="bajo"});
+  var html='<div class="sm-sum">'+imcTxt+
+    '<span class="sm-pill alto">🔴 '+cnt.alto+' alto</span><span class="sm-pill medio">🟠 '+cnt.medio+' moderado</span><span class="sm-pill bajo">🟢 '+cnt.bajo+' bajo</span></div>';
+  html+=top.length?'<div class="sm-list">'+top.map(function(r){return row(r,c,true)}).join("")+'</div>':'<p style="color:var(--mute)">No encontramos factores de riesgo destacados. Igual conviene un control anual con tu médica.</p>';
+  if(low.length)html+='<details class="sm-low"'+(top.length?'':' open')+'><summary>Ver '+low.length+' con riesgo bajo (controles de rutina)</summary><div class="sm-list">'+low.map(function(r){return row(r,c,false)}).join("")+'</div></details>';
+  $("sm-out").innerHTML=html;
+  $("sm-form").style.display="none";$("sm-res").style.display="block";
+  $("monitoreo").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("sm-back").addEventListener("click",function(){
+  $("sm-res").style.display="none";$("sm-form").style.display="block";
+  $("monitoreo").scrollIntoView({behavior:"smooth",block:"start"});
+});
 })();
 </script>
 </body>
