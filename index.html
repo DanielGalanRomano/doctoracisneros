@@ -221,16 +221,16 @@ footer a{color:var(--blue);font-weight:600}
 .sm-imc{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
 .sm-imc small{display:block;font-weight:500;color:var(--mute);font-size:12px}
 .sm-pill{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:99px;white-space:nowrap}
-.sm-pill.alto{background:#ffe9ea;color:#c0353a}.sm-pill.medio{background:#fff4de;color:#9a6200}.sm-pill.bajo{background:#e8f8ef;color:#13804a}
+.sm-pill.alto{background:#fff1de;color:#a35a00}.sm-pill.medio{background:#fff9db;color:#8a6d00}.sm-pill.bajo{background:#e8f8ef;color:#13804a}
 .sm-list{display:grid;gap:8px}
 .sm-r{display:flex;gap:11px;padding:11px 12px;border-radius:14px;background:var(--bg);border-left:4px solid var(--line)}
-.sm-r.alto{border-left-color:var(--dv-r);background:#fff5f5}.sm-r.medio{border-left-color:var(--dv-a);background:#fffaf0}.sm-r.bajo{border-left-color:var(--dv-g)}
+.sm-r.alto{border-left-color:var(--dv-a);background:#fffaf0}.sm-r.medio{border-left-color:#e8c93a;background:#fffdf0}.sm-r.bajo{border-left-color:var(--dv-g)}
 .sm-ri{flex:none;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:19px}
 .sm-rb{min-width:0;flex:1}
 .sm-rt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sm-rt h4{font-size:14.5px;color:var(--navy);font-weight:700;margin:0}
 .sm-tag{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:99px;margin-left:auto}
-.alto .sm-tag{background:var(--dv-r);color:#fff}.medio .sm-tag{background:var(--dv-a);color:#fff}.bajo .sm-tag{background:var(--dv-g);color:#fff}
+.alto .sm-tag{background:var(--dv-a);color:#fff}.medio .sm-tag{background:#d4ae1c;color:#fff}.bajo .sm-tag{background:var(--dv-g);color:#fff}
 .sm-rb p{font-size:13px;line-height:1.45;margin-top:3px;color:var(--ink)}
 .sm-rb p.m{color:var(--mute);font-size:12.5px}
 .sm-low{margin-top:10px}
@@ -566,9 +566,8 @@ var CONDS=[
       estudio:"Creatinina con filtrado glomerular y orina completa (albuminuria)",frec:"Anual si hay riesgo",
       aplica:function(c){return c.edad>=18},
       pts:function(c,s){
-        if(c.f.diab)s(1,"antecedente de diabetes");if(c.f.hta)s(1,"antecedente de hipertensión");
-        if(c.edad>=60)s(1,"edad ≥ 60");if(c.imc>=30)s(1,"obesidad");if(c.h.fuma)s(1,"tabaco");
-        if(c.h.drogas)s(1,"consumo de drogas");if(c.h.alcohol)s(1,"alcohol");}},
+        if(c.f.diab)s(2,"antecedente de diabetes");if(c.f.hta)s(2,"antecedente de hipertensión");
+        if(c.edad>=60)s(1,"edad ≥ 60");if(c.imc>=30)s(1,"obesidad");if(c.h.fuma)s(1,"tabaco");}},
     {n:"Enfermedades de la tiroides",i:"🦋",cat:"Endocrina",si:"🧪",
       estudio:"TSH (hormona estimulante de la tiroides)",frec:"Cada 3 a 5 años; anual si hay antecedentes",
       aplica:function(c){return c.edad>=18},
@@ -603,8 +602,8 @@ var CONDS=[
         if(c.f.diab)s(1,"antecedente de diabetes");if(c.f.hta)s(1,"antecedente de hipertensión");if(c.h.fuma)s(1,"tabaco");}}
   ];
 
-var NIVEL={alto:{t:"Riesgo alto",u:"Urgencia alta",txt:"turno en los próximos 15 a 30 días",ue:"🔴"},medio:{t:"Riesgo moderado",u:"Urgencia media",txt:"dentro de los próximos 3 meses",ue:"🟠"},bajo:{t:"Riesgo bajo",u:"Urgencia baja",txt:"control de rutina",ue:"🟢"}};
-function nivel(p){return p>=4?"alto":(p>=2?"medio":"bajo")}
+var NIVEL={alto:{t:"Conviene priorizar",u:"Prioridad",txt:"conviene sacar turno en el próximo mes",ue:"🟠"},medio:{t:"Para chequear",u:"Prioridad media",txt:"dentro de los próximos 3 a 6 meses",ue:"🟡"},bajo:{t:"De rutina",u:"Sin apuro",txt:"control de rutina",ue:"🟢"}};
+function nivel(p){return p>=6?"alto":(p>=3?"medio":"bajo")}
 function esc(t){return String(t).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]})}
 function row(r,c,why){
   var d=r.d,n=NIVEL[r.lvl],est=d.estudioFn?d.estudioFn(c):d.estudio;
@@ -640,9 +639,9 @@ $("sm-form").addEventListener("submit",function(ev){
   else imcTxt='<div class="sm-imc"><small>Sin altura no se calcula el IMC.</small></div>';
   var top=out.filter(function(r){return r.lvl!=="bajo"}),low=out.filter(function(r){return r.lvl==="bajo"});
   var html='<div class="sm-sum">'+imcTxt+
-    '<span class="sm-pill alto">🔴 '+cnt.alto+' alto</span><span class="sm-pill medio">🟠 '+cnt.medio+' moderado</span><span class="sm-pill bajo">🟢 '+cnt.bajo+' bajo</span></div>';
-  html+=top.length?'<div class="sm-list">'+top.map(function(r){return row(r,c,true)}).join("")+'</div>':'<p style="color:var(--mute)">No encontramos factores de riesgo destacados. Igual conviene un control anual con tu médica.</p>';
-  if(low.length)html+='<details class="sm-low"'+(top.length?'':' open')+'><summary>Ver '+low.length+' con riesgo bajo (controles de rutina)</summary><div class="sm-list">'+low.map(function(r){return row(r,c,false)}).join("")+'</div></details>';
+    '<span class="sm-pill alto">🟠 '+cnt.alto+' para priorizar</span><span class="sm-pill medio">🟡 '+cnt.medio+' para chequear</span><span class="sm-pill bajo">🟢 '+cnt.bajo+' de rutina</span></div>';
+  html+=top.length?'<div class="sm-list">'+top.map(function(r){return row(r,c,true)}).join("")+'</div>':'<p style="color:var(--mute)">¡Muy bien! No encontramos factores de riesgo destacados. Igual conviene un control anual con tu médica.</p>';
+  if(low.length)html+='<details class="sm-low"'+(top.length?'':' open')+'><summary>Ver '+low.length+' controles de rutina</summary><div class="sm-list">'+low.map(function(r){return row(r,c,false)}).join("")+'</div></details>';
   $("sm-out").innerHTML=html;
   $("sm-form").style.display="none";$("sm-res").style.display="block";
   $("monitoreo").scrollIntoView({behavior:"smooth",block:"start"});
