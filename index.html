@@ -36,8 +36,13 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-f
 .burger.x i:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.x i:nth-child(2){opacity:0}.burger.x i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 /* hero */
 .hero{overflow:hidden;background:var(--bg)}
-.hero img{display:block;width:100%;height:clamp(220px,38vw,440px);object-fit:cover;object-position:60% 30%;animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
-@keyframes zoom{from{transform:scale(1.12);opacity:0}to{transform:scale(1);opacity:1}}
+.slides{position:relative;width:100%;height:clamp(220px,38vw,440px);overflow:hidden}
+.slides img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:60% 30%;opacity:0;animation:slide 6s cubic-bezier(.2,.7,.2,1) infinite both}
+.slides img:nth-child(2){animation-delay:2s}
+.slides img:nth-child(3){animation-delay:4s}
+/* 3 imágenes x 2s = 6s por ciclo; entrada rápida (0.3s) con leve zoom, cruce suave */
+@keyframes slide{0%{opacity:0;transform:scale(1.1)}5%{opacity:1}33.33%{opacity:1;transform:scale(1)}38.33%{opacity:0;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.slides img{animation:none}.slides img:first-child{opacity:1}}
 .intro{text-align:center;padding:44px 20px 56px}
 .intro>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 .intro h1{font-size:clamp(30px,6vw,46px);line-height:1.15;color:var(--navy);font-weight:800;animation-delay:.5s}
@@ -199,7 +204,11 @@ footer a{color:var(--blue);font-weight:600}
 </div></nav>
 
 <header class="hero" id="top">
- <img src="hero.jpg" alt="La Dra. Maira Cisneros sonriendo durante una consulta">
+ <div class="slides">
+  <img src="hero.jpg" alt="La Dra. Maira Cisneros sonriendo durante una consulta">
+  <img src="hero2.jpg" alt="La Dra. Maira Cisneros en su consultorio" loading="lazy">
+  <img src="hero3.jpg" alt="La Dra. Maira Cisneros atendiendo a un paciente" loading="lazy">
+ </div>
  <div class="intro">
   <h1>Maira Cisneros,<br><span>médica de familia</span></h1>
   <p>Médica egresada de la UBA y especialista en Medicina Familiar y General (CEMIC). Te acompaño en tu salud y la de tu familia.</p>
