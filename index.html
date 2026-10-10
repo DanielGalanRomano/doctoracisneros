@@ -198,7 +198,7 @@ footer a{color:var(--blue);font-weight:600}
 
 /* monitoreá tu salud */
 #monitoreo{padding:52px 0}
-#monitoreo .sub{margin-bottom:24px}
+#monitoreo .sub{margin-bottom:10px}
 .sm-box{max-width:700px;margin:0 auto;background:#fff;border-radius:22px;padding:22px;box-shadow:0 14px 50px -16px rgba(60,90,180,.35);font-size:14px}
 .sm-box h3{font-size:14.5px;color:var(--navy);margin:16px 0 8px;font-weight:700}
 .sm-box h3:first-child{margin-top:0}
@@ -215,12 +215,18 @@ footer a{color:var(--blue);font-weight:600}
 .sm-go{display:block;width:100%;margin-top:18px;padding:13px;border:0;border-radius:999px;background:var(--blue);color:#fff;font:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 10px 24px -8px rgba(79,128,255,.7);transition:transform .2s,background .2s;text-align:center}
 .sm-go:hover{background:var(--blue-d);transform:translateY(-2px)}
 .sm-err{color:var(--dv-r);font-weight:600;font-size:13px;min-height:18px;margin-top:8px;text-align:center}
-.sm-leg{font-size:12px;color:var(--mute);margin-top:14px;text-align:center}
+.sm-leg{font-size:13.5px;font-weight:600;color:var(--dv-r,#d93025);text-align:center;max-width:700px;margin:0 auto 24px;line-height:1.45}
 #sm-res{display:none}
 .sm-sum{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px}
 .sm-imc{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
 .sm-imc small{display:block;font-weight:500;color:var(--mute);font-size:12px}
-.sm-pill{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:99px;white-space:nowrap}
+.sm-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.sm-pill{font:inherit;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:99px;white-space:nowrap;border:2px solid transparent;cursor:pointer;transition:.2s;opacity:.7}
+.sm-pill:hover{opacity:1}
+.sm-pill[aria-selected="true"]{opacity:1;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
+.sm-pill.alto[aria-selected="true"]{border-color:#e8a24a}.sm-pill.medio[aria-selected="true"]{border-color:#d4ae1c}.sm-pill.bajo[aria-selected="true"]{border-color:#3fbf7f}
+.sm-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.sm-empty{color:var(--mute);padding:6px 2px}
 .sm-pill.alto{background:#fff1de;color:#a35a00}.sm-pill.medio{background:#fff9db;color:#8a6d00}.sm-pill.bajo{background:#e8f8ef;color:#13804a}
 .sm-list{display:grid;gap:8px}
 .sm-r{display:flex;gap:11px;padding:11px 12px;border-radius:14px;background:var(--bg);border-left:4px solid var(--line)}
@@ -291,6 +297,7 @@ footer a{color:var(--blue);font-weight:600}
 <section id="monitoreo"><div class="wrap">
  <h2>Monitoreá tu <b>salud</b></h2>
  <p class="sub">Contanos tu edad y tus hábitos y te mostramos qué controles te convienen y con qué urgencia.</p>
+ <p class="sm-leg">Información orientativa basada en las recomendaciones de prevención del Ministerio de Salud de la Nación. No reemplaza la consulta médica.</p>
  <div class="sm-box rv">
   <form id="sm-form" novalidate>
    <h3>👤 Tus datos</h3>
@@ -311,7 +318,6 @@ footer a{color:var(--blue);font-weight:600}
    <div id="sm-out"></div>
    <div class="sm-act"><button type="button" id="sm-back">✏️ Cambiar datos</button><a href="#turnos">Sacar turno</a></div>
   </div>
-  <p class="sm-leg">Información orientativa basada en las recomendaciones de prevención del Ministerio de Salud de la Nación. No reemplaza la consulta médica.</p>
  </div>
 </div></section>
 
@@ -637,12 +643,28 @@ $("sm-form").addEventListener("submit",function(ev){
   if(imc){var cat=imc<18.5?"Por debajo del rango normal":imc<25?"Rango normal":imc<30?"Sobrepeso":"Obesidad";
     imcTxt='<div class="sm-imc">⚖️ IMC '+imc.toFixed(1)+'<small>'+cat+(edad<18?" (en menores de 18 se evalúa con percentiles)":"")+'</small></div>'}
   else imcTxt='<div class="sm-imc"><small>Sin altura no se calcula el IMC.</small></div>';
-  var top=out.filter(function(r){return r.lvl!=="bajo"}),low=out.filter(function(r){return r.lvl==="bajo"});
-  var html='<div class="sm-sum">'+imcTxt+
-    '<span class="sm-pill alto">🟠 '+cnt.alto+' para priorizar</span><span class="sm-pill medio">🟡 '+cnt.medio+' para chequear</span><span class="sm-pill bajo">🟢 '+cnt.bajo+' de rutina</span></div>';
-  html+=top.length?'<div class="sm-list">'+top.map(function(r){return row(r,c,true)}).join("")+'</div>':'<p style="color:var(--mute)">¡Muy bien! No encontramos factores de riesgo destacados. Igual conviene un control anual con tu médica.</p>';
-  if(low.length)html+='<details class="sm-low"'+(top.length?'':' open')+'><summary>Ver '+low.length+' controles de rutina</summary><div class="sm-list">'+low.map(function(r){return row(r,c,false)}).join("")+'</div></details>';
+  var by={alto:[],medio:[],bajo:[]};out.forEach(function(r){by[r.lvl].push(r)});
+  var EMPTY={alto:"No encontramos controles para priorizar. ¡Muy bien!",medio:"No hay controles para chequear por ahora.",bajo:"No hay controles de rutina para mostrar."};
+  var LBL={alto:"🟠 "+cnt.alto+" para priorizar",medio:"🟡 "+cnt.medio+" para chequear",bajo:"🟢 "+cnt.bajo+" de rutina"};
+  var first=cnt.alto?"alto":(cnt.medio?"medio":"bajo");
+  var html='<div class="sm-sum">'+imcTxt+'<div class="sm-tabs" role="tablist" aria-label="Nivel de prioridad">'+
+    ["alto","medio","bajo"].map(function(k){return '<button type="button" role="tab" class="sm-pill '+k+'" id="sm-tab-'+k+'" data-k="'+k+'" aria-controls="sm-panel" aria-selected="'+(k===first)+'" tabindex="'+(k===first?0:-1)+'">'+LBL[k]+'</button>'}).join("")+
+    '</div></div><div id="sm-panel" role="tabpanel"></div>';
   $("sm-out").innerHTML=html;
+  function show(k){
+    document.querySelectorAll("#sm-out .sm-pill").forEach(function(t){var on=t.dataset.k===k;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1});
+    var pn=$("sm-panel");pn.setAttribute("aria-labelledby","sm-tab-"+k);
+    pn.innerHTML=by[k].length?'<div class="sm-list">'+by[k].map(function(r){return row(r,c,k!=="bajo")}).join("")+'</div>':'<p class="sm-empty">'+EMPTY[k]+'</p>';
+  }
+  var ks=["alto","medio","bajo"];
+  document.querySelectorAll("#sm-out .sm-pill").forEach(function(t){
+    t.addEventListener("click",function(){show(t.dataset.k)});
+    t.addEventListener("keydown",function(e){
+      var i=ks.indexOf(t.dataset.k),n=e.key==="ArrowRight"?i+1:e.key==="ArrowLeft"?i-1:null;
+      if(n===null)return;e.preventDefault();var k=ks[(n+3)%3];show(k);$("sm-tab-"+k).focus();
+    });
+  });
+  show(first);
   $("sm-form").style.display="none";$("sm-res").style.display="block";
   $("monitoreo").scrollIntoView({behavior:"smooth",block:"start"});
 });
